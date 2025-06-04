@@ -8,7 +8,9 @@ import { Observable, of } from 'rxjs';
 export class AppService {
   selectedCocktailTypes:any = [];
   selectedCoaktail:any = {};
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+     
+   }
 
   getCocktails(name: string): Observable<any> {
   return !!name ? this.http.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`) : of(null);

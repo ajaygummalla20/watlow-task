@@ -1,17 +1,19 @@
-<div class="cocktail-container">
-    <div>
-        <img [src]="appService.selectedCoaktail.strDrinkThumb" alt="">
+<ng-container>
+    <div class="cocktail-container">
+        <div>
+            <img [src]="appService.selectedCoaktail.strDrinkThumb" alt="" style="max-width: 87%;">
+        </div>
+        <div class="cocktail-details">
+            <h2>Ingrdeaints:</h2>
+            <ul>
+                <li>{{appService.selectedCoaktail.strIngredient1}}</li>
+                <li>{{appService.selectedCoaktail.strIngredient2}}</li>
+                <li>{{appService.selectedCoaktail.strIngredient3}}</li>
+                <li>{{appService.selectedCoaktail.strIngredient4}}</li>
+                <li>{{appService.selectedCoaktail.strIngredient5}}</li>
+            </ul>
+            <h2>Instructions:</h2>
+            <p>{{appService.selectedCoaktail.strInstructions}}</p>
+        </div>
     </div>
-    <div>
-        <h2>Ingrdeaints:</h2>
-        <ul>
-            <li>{{appService.selectedCoaktail.strIngredient1}}</li>
-            <li>{{appService.selectedCoaktail.strIngredient2}}</li>
-            <li>{{appService.selectedCoaktail.strIngredient3}}</li>
-            <li>{{appService.selectedCoaktail.strIngredient4}}</li>
-            <li>{{appService.selectedCoaktail.strIngredient5}}</li>
-        </ul>
-        <h2>Instructions:</h2>
-        <p>{{appService.selectedCoaktail.strInstructions}}</p>
-    </div>
-</div>
+</ng-container>
