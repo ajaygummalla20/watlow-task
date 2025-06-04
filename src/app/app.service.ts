@@ -6,7 +6,8 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class AppService {
-
+  selectedCocktailTypes:any = [];
+  selectedCoaktail:any = {};
   constructor(private http: HttpClient) { }
 
   getCocktails(name: string): Observable<any> {

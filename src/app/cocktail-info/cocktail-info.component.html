@@ -1,1 +1,32 @@
-<p>cocktail-info works!</p>
+<ng-container>
+    <div class="options">
+     <h2>What Are You Thirsty For &nbsp;:</h2>
+     <div class="filter-buttons">
+        <button class="box height38" (click)="filterCocktails('Alcoholic')">Alcoholic</button>
+        <button class="box height38" (click)="filterCocktails('Non-Alcoholic')">Non-Alcoholic</button>
+     </div>
+    </div>
+    <div class="cocktail-container" *ngIf="cocktailItems.length > 0">
+        @for (item of cocktailItems; track $index) {
+            <div class="cocktail-item box" (click)="onCocktailClick(item)">
+                <div>
+                    <img src="https://www.thecocktaildb.com/images/media/drink/hbkfsh1589574990.jpg"
+                     class="cocktail-image"/>
+                </div>
+                <div>
+                    <ul class="cocktail-details">
+                        <li>Name: {{item.strDrink}}</li>
+                        <li>Category: {{item.strCategory}}</li>
+                        <li>Alcoholic: {{item.strAlcoholic === 'Alcoholic' ? 'Yes' : 'No'}}</li>
+                        <li>Glass: {{item.strGlass}}</li>
+                    </ul>
+                </div>
+            </div>
+        }
+    </div>
+    <div *ngIf = "cocktailItems.length === 0" style="display: flex;justify-content: center;margin-top: 4%;">
+        <p style="font-family:cursive;font-style: bold;">
+            We're all out of drinks right now. Apologies
+        </p>
+    </div>
+</ng-container>

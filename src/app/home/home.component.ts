@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { AppService } from '../app.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -9,7 +9,7 @@ import { AppService } from '../app.service';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  constructor(@Inject(AppService) private appService: AppService) {}
+  constructor(@Inject(AppService) private appService: AppService,private router: Router) {}
   cocktails = [
   {
     "name": "Old Fashioned",
@@ -40,7 +40,12 @@ export class HomeComponent {
 onCocktailClick(item:any){
   if(item && item.name) {
     this.appService.getCocktails(item.name)?.subscribe(data => {
-      console.log(data);
+      if(data && data.drinks){
+        this.appService.selectedCocktailTypes = data.drinks;
+        this.router.navigate(['/cocktails']);
+      }
+    },error => {
+      console.log("Failed to Fetch cocktails")
     })
   }
 }
