@@ -1,0 +1,13 @@
+.logo{
+    max-width: 9%;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.tag-line{
+    font-family: cursive;
+    font-size: 52px;
+}

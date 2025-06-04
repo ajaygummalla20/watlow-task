@@ -1,0 +1,9 @@
+<ng-container>
+    <div class="cocktail-container">
+        @for (item of cocktails; track $index) {
+        <div class="cocktail-card" (click)="onCocktailClick(item)">
+            <p>{{item.name}}</p>
+        </div>
+        }
+    </div>
+</ng-container>
